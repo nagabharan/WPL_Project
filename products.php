@@ -77,7 +77,7 @@
     <div class="container">
 
     <div class="row" style="margin-top:70px;">
-      <div class="small-12">
+      <div class="large-12">
         <?php
           $i=0;
           $product_id = array();
@@ -100,26 +100,61 @@
               $sql = "SELECT * FROM products WHERE genre LIKE '%{$search_term}%'";
             }
 
+            $filter_term = $_POST['filter2'];
+            if($filter_term == "year"){
+              $sql = "SELECT * FROM products ORDER BY year";
+            }
 
+            else if($filter_term == "artist"){
+              $sql = "SELECT * FROM products ORDER BY artist";
+            }
+
+            else if($filter_term == "genre"){
+              $sql = "SELECT * FROM products ORDER BY genre";
+            }
+
+            else if($filter_term == "lth"){
+              $sql = "SELECT * FROM products ORDER BY price";
+            }
+
+            else if($filter_term == "htl"){
+              $sql = "SELECT * FROM products ORDER BY price DESC";
+            }
           }
 
           $result = $mysqli->query($sql);
           if($result === FALSE){
             die(mysql_error());
           } ?>
-
-          <form method="POST" action="products.php">
-              <input placeholder="Search by" name="search_box" type="text">
-                <select name="filter">
-                  <option value="name"> Album </option>
+          <div class="row col-md-12">
+          <form class="navbar-form" role="search" method="POST" action="products.php">
+            <div class="col-md-6">
+              <input placeholder="Search by" name="search_box" type="text" class="form-control">
+              <select name="filter" class="form-control">
+                <option value="name">Album</option>
+                <option value="artist">Artist</option>
+                <option value="genre">Genre</option>
+              </select>
+              <button type="submit" class="btn btn-primary" name="search" value="Search">Search</button>              
+            </div>
+            <div class="col-md-4">
+              <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">Sort By</span>
+                <select name="filter2" class="form-control">
+                  <option value="year">Year</option>
                   <option value="artist">Artist</option>
                   <option value="genre">Genre</option>
+                  <option value="lth">Price:Low to High</option>
+                  <option value="htl">Price:High to Low</option>
                 </select>
-              <button type="submit" class="btn btn-primary" name="search" value="Search"> Search</button>
-              <button type="reset" class="btn btn-primary" name="reset" value="reset"> Reset</button>
-              <button class="btn btn-primary" href="./products.php"> Back</button>
-          </form>
-
+              </div>
+              <button type="submit" class="btn btn-primary" name="search" value="Search">Sort</button>
+            </div> 
+            <div>
+            <button class="btn btn-primary" href="./products.php">Reset</button>           
+            </div>
+          </form>          
+        </div>
      <?php
 
 
@@ -142,9 +177,12 @@
               else {
                 echo 'Out Of Stock!';
               }
-              echo '</div>';
-
+              
               $i++;
+              if($i%3==0){
+                echo '</div><div class="row">';
+              }
+              echo '</div>';
             }
 
           }
@@ -156,10 +194,6 @@
 
            </div>
          </div>
-      <!-- FOOTER -->
-      <footer>
-        <p>&copy; 2015 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-      </footer>
 
     </div><!-- /.container -->
 

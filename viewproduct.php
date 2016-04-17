@@ -1,9 +1,19 @@
 <?php
 
-  if(session_id() == '' || !isset($_SESSION)){session_start();}
-  include 'config.php';
-  
+//if (session_status() !== PHP_SESSION_ACTIVE) {session_start();}
+if(session_id() == '' || !isset($_SESSION)){session_start();}
+
+if(!isset($_SESSION["username"])) {
+  header("location:index.php");
+}
+
+if($_SESSION["type"]!="admin") {
+  header("location:index.php");
+}
+
+include 'config.php';
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -15,7 +25,7 @@
     <meta name="author" content="Deeptha, Nagabharan, Sudhir">
     <link rel="icon" href="img/favicon.ico">
 
-    <title>Products</title>
+    <title>Add Products</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -26,8 +36,6 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <!-- Custom styles for this template -->
-    <link href="css/carousel.css" rel="stylesheet">
   </head>
 <!-- NAVBAR
 ================================================== -->
@@ -38,7 +46,7 @@
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
+            <span>Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -59,9 +67,7 @@
           <ul class="nav navbar-nav navbar-right">
             <?php
             if(isset($_SESSION['username'])){
-              echo '<li><a href="./cart.php">Cart</a></li>';  
-              echo '<li><a href="./history.php">My Orders</a></li>';  
-              echo '<li><a href="./admin.php">My Account</a></li>';
+              echo '<li><a href="./account.php">My Account</a></li>';
               echo '<li><a href="./logout.php">Log Out</a></li>';
             }
             else{
@@ -73,10 +79,11 @@
         </div><!--/.nav-collapse -->
       </div>
     </nav>
-    <div class="container">
-      <div class="row" style="margin-top:70px;">
-      <div class="small-12">
-        <?php
+
+    <div class="container" style="margin-top:70px;">
+      <div class="row">
+
+      <?php
           $product_id = $_GET['id'];
 
           $result = $mysqli->query("SELECT * FROM products WHERE id = ".$product_id);
@@ -88,21 +95,36 @@
           if($result){
 
             while($obj = $result->fetch_object()) {
+              echo '<form class="form-signin" method="POST" action="updateproduct.php">';
+              echo '<h2 class="form-signin-heading">Update Product</h2>';
+        
+              echo '<label for="inputAlbumName">Album Name</label>';
+              echo '<input type="text" id="inputAlbumName" name="aname" class="form-control" value="'.$obj->name.'" required autofocus> <br/>';
 
-              echo '<div class="large-4 columns">';
-              echo '<p><h3>'.$obj->name.'</h3></p>';
+              echo '<label for="inputGenre">Genre</label>';
+              echo '<input type="text" id="inputGenre" name="genre" class="form-control" value="'.$obj->genre.'" required> <br/>';
+              
+              echo '<label for="inputArtist">Artist</label>';
+              echo '<input type="text" id="inputArtist" name="artist" class="form-control" value="'.$obj->artist.'" required> <br/>';
+              
+              echo '<label for="inputYear">Year</label>';
+              echo '<input type="text" id="inputYear" name="year" class="form-control" value="'.$obj->year.'" required> <br/>';
+
+              echo '<label for="inputQty">Quantity</label>';
+              echo '<input type="text" id="inputQty" name="qty" class="form-control" value="'.$obj->qty.'" required> <br/>';
+              
+              echo '<label for="inputPrice">Price(Per Unit)</label>';
+              echo '<input type="text" id="inputPrice" name="price" class="form-control" value="'.$obj->price.'" required> <br/>';
+              
+              echo '<label for="inputImage">Thumbnail</label>';
               echo '<img src="images/products/'.$obj->image.'"/>';
-              echo '<p><strong>Genre</strong>: '.$obj->genre.'</p>';
-              echo '<p><strong>Artist</strong>: '.$obj->artist.'</p>';
-              echo '<p><strong>Year</strong>: '.$obj->year.'</p>';
-              echo '<p><strong>Price (Per Unit)</strong>: '.$currency.$obj->price.'</p>';
-              echo '<p><strong>Units Available</strong>:'.$obj->qty.'</p>';
-              echo '</div>';
-              echo '<form method="post" action="updateproduct.php">';
-              echo '<p><strong>New Quantity</strong>: <input type="number" name="quantity"/> ';
+              echo '<input type="text" id="inputImage" name="image" class="form-control" value="'.$obj->image.'" required> <br/>';
+              
               echo '<input hidden name="id" value="'.$obj->id.'"/>';
-              echo '<button class="btn btn-primary" type="submit">Update</button> ';
-              echo '<a href="deleteproduct.php?id='.$obj->id.'" class="btn btn-danger" role="button">Delete</a>';
+
+              echo '<div class="col-md-6"><button class="btn btn-primary" type="submit">Update</button></div>';
+              echo '<div class="col-md-6"><a href="deleteproduct.php?id='.$obj->id.'" class="btn btn-danger" role="button">Delete</a></div>';
+              echo '</form>';
             }
           }
 
@@ -110,14 +132,7 @@
 
 
           ?>
-          
-           </div>
-         </div>
-      <!-- FOOTER -->
-      <footer>
-        <p>&copy; 2015 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-      </footer>
-
+      </div>
     </div><!-- /.container -->
 
 

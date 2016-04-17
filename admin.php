@@ -25,7 +25,7 @@ include 'config.php';
     <meta name="author" content="Deeptha, Nagabharan, Sudhir">
     <link rel="icon" href="img/favicon.ico">
 
-    <title>Products</title>
+    <title>Admin</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -124,15 +124,7 @@ include 'config.php';
     </div>
   </div>
       
-
-
-      <!-- FOOTER -->
-      <footer>
-        <p>&copy; 2015 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-      </footer>
-
     </div><!-- /.container -->
-
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

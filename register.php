@@ -112,11 +112,6 @@
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
       </form>
-    
-      <!-- FOOTER -->
-      <footer>
-        <p>&copy; 2015 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-      </footer>
 
     </div><!-- /.container -->
 

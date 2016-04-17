@@ -83,13 +83,6 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
         </div>
       </div>
 
-
-
-      <!-- FOOTER -->
-      <footer>
-        <p>&copy; 2015 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-      </footer>
-
     </div><!-- /.container -->
 
 

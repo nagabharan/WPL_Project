@@ -15,7 +15,7 @@
     <meta name="author" content="Deeptha, Nagabharan, Sudhir">
     <link rel="icon" href="img/favicon.ico">
 
-    <title>WPL Project</title>
+    <title>Songify</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -196,13 +196,6 @@
       <hr class="featurette-divider">
 
       <!-- /END THE FEATURETTES -->
-
-
-      <!-- FOOTER -->
-      <footer>
-        <p class="pull-right"><a href="./index.php">Back to top</a></p>
-        <p>&copy; 2015 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-      </footer>
 
     </div><!-- /.container -->
 

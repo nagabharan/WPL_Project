@@ -25,7 +25,7 @@ include 'config.php';
     <meta name="author" content="Deeptha, Nagabharan, Sudhir">
     <link rel="icon" href="img/favicon.ico">
 
-    <title>Products</title>
+    <title>Add Products</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -46,7 +46,7 @@ include 'config.php';
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
+            <span>Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -85,36 +85,31 @@ include 'config.php';
       <form class="form-signin" method="POST" action="insertproduct.php">
         <h2 class="form-signin-heading">Create New Product</h2>
         
-        <label for="inputAlbumName" class="sr-only">Album Name</label>
+        <label for="inputAlbumName">Album Name</label>
         <input type="text" id="inputAlbumName" name="aname" class="form-control" placeholder="Album Name" required autofocus> <br/>
 
-        <label for="inputGenre" class="sr-only">Genre</label>
+        <label for="inputGenre">Genre</label>
         <input type="text" id="inputGenre" name="genre" class="form-control" placeholder="Genre" required> <br/>
         
-        <label for="inputArtist" class="sr-only">Artist</label>
+        <label for="inputArtist">Artist</label>
         <input type="text" id="inputArtist" name="artist" class="form-control" placeholder="Artist" required> <br/>
         
-        <label for="inputYear" class="sr-only">Year</label>
+        <label for="inputYear">Year</label>
         <input type="text" id="inputYear" name="year" class="form-control" placeholder="Year" required> <br/>
 
-        <label for="inputQty" class="sr-only">Quantity</label>
+        <label for="inputQty">Quantity</label>
         <input type="text" id="inputQty" name="qty" class="form-control" placeholder="Quantity" required> <br/>
         
-        <label for="inputPrice" class="sr-only">Price(Per Unit)</label>
+        <label for="inputPrice">Price(Per Unit)</label>
         <input type="text" id="inputPrice" name="price" class="form-control" placeholder="Price" required> <br/>
         
-        <label for="inputImage" class="sr-only">Image</label>
+        <label for="inputImage">Image</label>
         <input type="text" id="inputImage" name="image" class="form-control" placeholder="Image" required> <br/>
         
         <button class="btn btn-lg btn-primary" type="submit">Add</button>
       </form>
       <br/>
       </div>
-      <!-- FOOTER -->
-      <footer>
-        <p>&copy; 2015 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-      </footer>
-
     </div><!-- /.container -->
 
 

@@ -7,22 +7,28 @@ if($_SESSION["type"]!="admin") {
 }
 
 include 'config.php';
-
-$id = $_REQUEST['id'];
-$qty = $_REQUEST['quantity'];
+$id=$_POST["id"];
+$aname = $_POST["aname"];
+$genre = $_POST["genre"];
+$artist = $_POST["artist"];
+$year = $_POST["year"];
+$qty = $_POST["qty"];
+$price = $_POST["price"];
+$image = $_POST["image"];
 
 $result = $mysqli->query("SELECT * FROM products WHERE id =".$id);
 
 if($result) {
   while($obj = $result->fetch_object()) {
-      $update = $mysqli->query("UPDATE products SET qty =".$qty." WHERE id =".$id);
+      $update = $mysqli->query("UPDATE products SET name ='$aname', genre ='$genre' ,artist='$artist' ,year='$year' ,qty='$qty' ,image='$image' ,price='$price'  WHERE id =".$id);
       if($update)
         echo 'Data Updated';
       else
         echo 'Failed';
+    	echo $mysqli->error;
     }
   }
 
-header ("location:admin.php");
+header ("location:products.php");
 
 ?>
