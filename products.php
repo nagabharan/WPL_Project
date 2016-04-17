@@ -88,12 +88,9 @@
           if(isset($_POST['search']))
           {
            $search_term =$_POST['search_box'];
-            if($_POST['filter'] == "price")
-            {
-              $sql = "SELECT * FROM products WHERE name = '{$search_term}' ORDER BY price ASC";
-            }
+  
 
-            else if($_POST['filter'] == "name"){
+            if($_POST['filter'] == "name"){
               $sql = "SELECT * FROM products WHERE name LIKE '{$search_term}'";
             }
 
@@ -120,7 +117,7 @@
               <option value="name"> Album </option>
               <option value="artist">Artist</option>
               <option value="genre">Genre</option>
-              <option value="price"> Sort - Prices Low to high</option>
+
             </select>
              <button type="submit" style = "width: 75px; height: 25px" name="search" value="Search" > Search</button>
          
