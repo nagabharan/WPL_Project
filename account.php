@@ -22,11 +22,11 @@ include 'config.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="Songify the one stop shop for Vinyl CDs and Albums">
+    <meta name="author" content="Deeptha, Nagabharan, Sudhir">
     <link rel="icon" href="img/favicon.ico">
 
-    <title>WPL Project</title>
+    <title>Account Details</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -37,8 +37,6 @@ include 'config.php';
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <!-- Custom styles for this template -->
-    <link href="css/carousel.css" rel="stylesheet">
   </head>
 <!-- NAVBAR
 ================================================== -->
@@ -59,8 +57,8 @@ include 'config.php';
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li><a href="./index.php">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="./about.php">About</a></li>
+            <li><a href="./contact.php">Contact</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <?php
@@ -79,7 +77,7 @@ include 'config.php';
     </nav>
 
     <div class="container">
-    <div class="row" style="margin-top:30px;">
+    <div class="row" style="margin-top:70px;">
       <div class="small-12">
         <p><?php echo '<h3>Hi ' .$_SESSION['fname'] .'</h3>'; ?></p>
 

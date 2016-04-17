@@ -12,8 +12,8 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="Songify the one stop shop for Vinyl CDs and Albums">
+    <meta name="author" content="Deeptha, Nagabharan, Sudhir">
     <link rel="icon" href="img/favicon.ico">
 
     <title>WPL Project</title>
@@ -49,8 +49,8 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="./index.php">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="./about.php">About</a></li>
+            <li><a href="./contact.php">Contact</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <?php
