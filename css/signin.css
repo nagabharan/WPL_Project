@@ -38,3 +38,59 @@ body {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
+#pswd_info ul, li {
+    margin:0;
+    padding:0;
+    list-style-type:none;
+}
+@media screen and (max-width: 50px) {
+    #pswd_info {
+    background: red;
+  }
+}
+#pswd_info {
+    position:absolute;
+    top: 49%;
+    bottom: -115px\9; /* IE Specific */
+    left: 60%;
+    width:250px;
+    padding:15px;
+    background:#fefefe;
+    font-size:.875em;
+    border-radius:5px;
+    box-shadow:0 1px 3px #ccc;
+    border:1px solid #ddd;
+}
+#pswd_info h4 {
+    margin:0 0 10px 0;
+    padding:0;
+    font-weight:normal;
+}
+#pswd_info::before {
+    content: "\25C4";
+    position:absolute;
+    top:40px;
+    left:-6%;
+    font-size:20px;
+    line-height:14px;
+    color:black;
+    text-shadow:none;
+    display:block;
+}
+.invalid {
+    background:url(../images/cross.png) no-repeat 0 50%;
+    padding-left:22px;
+    line-height:24px;
+    color:#ec3f41;
+}
+.valid {
+    background:url(../images/accept.png) no-repeat 0 50%;
+    padding-left:22px;
+    line-height:24px;
+    color:#3a7d34;
+
+}
+#pswd_info {
+    display:none;
+}
