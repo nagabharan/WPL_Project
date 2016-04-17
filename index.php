@@ -51,6 +51,11 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
             <li class="active"><a href="./index.php">Home</a></li>
             <li><a href="./about.php">About</a></li>
             <li><a href="./contact.php">Contact</a></li>
+            <?php
+              if(isset($_SESSION['username'])){
+                echo '<li><a href="./products.php">Products</a></li>';                
+              }
+            ?>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <?php
@@ -67,7 +72,7 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
         </div><!--/.nav-collapse -->
       </div>
     </nav>
-
+    
     <!-- Carousel
     ================================================== -->
     <div id="myCarousel" class="carousel slide" data-ride="carousel">

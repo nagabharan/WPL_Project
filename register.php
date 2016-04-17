@@ -50,6 +50,11 @@ if (isset($_SESSION["username"])) {header ("location:index.php");}
             <li><a href="./index.php">Home</a></li>
             <li><a href="./about.php">About</a></li>
             <li><a href="./contact.php">Contact</a></li>
+            <?php
+              if(isset($_SESSION['username'])){
+                echo '<li><a href="./products.php">Products</a></li>';                
+              }
+            ?>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <?php

@@ -49,6 +49,11 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
             <li><a href="./index.php">Home</a></li>
             <li><a href="./about.php">About</a></li>
             <li class="active"><a href="./contact.php">Contact</a></li>
+            <?php
+              if(isset($_SESSION['username'])){
+                echo '<li><a href="./products.php">Products</a></li>';                
+              }
+            ?>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <?php
@@ -75,7 +80,6 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
 
       <!-- FOOTER -->
       <footer>
-        <p class="pull-right"><a href="./index.php">Back to top</a></p>
         <p>&copy; 2015 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
       </footer>
 

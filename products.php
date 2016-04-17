@@ -1,12 +1,8 @@
 <?php
 
+//if (session_status() !== PHP_SESSION_ACTIVE) {session_start();}
 if(session_id() == '' || !isset($_SESSION)){session_start();}
-
-if(isset($_SESSION["username"])){
-  
-  header("location:index.php");
-}
-
+include 'config.php';
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +16,7 @@ if(isset($_SESSION["username"])){
     <meta name="author" content="Deeptha, Nagabharan, Sudhir">
     <link rel="icon" href="img/favicon.ico">
 
-    <title>Signup</title>
+    <title>WPL Project</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -32,11 +28,12 @@ if(isset($_SESSION["username"])){
     <![endif]-->
 
     <!-- Custom styles for this template -->
-    <link href="css/signin.css" rel="stylesheet">
-
+    <link href="css/carousel.css" rel="stylesheet">
   </head>
-
+<!-- NAVBAR
+================================================== -->
   <body>
+
     <!-- Fixed navbar -->
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
@@ -56,7 +53,7 @@ if(isset($_SESSION["username"])){
             <li><a href="./contact.php">Contact</a></li>
             <?php
               if(isset($_SESSION['username'])){
-                echo '<li><a href="./products.php">Products</a></li>';                
+                echo '<li class="active"><a href="./products.php">Products</a></li>';                
               }
             ?>
           </ul>
@@ -67,7 +64,7 @@ if(isset($_SESSION["username"])){
               echo '<li><a href="./logout.php">Log Out</a></li>';
             }
             else{
-              echo '<li class="active"><a href="./signup.php">Log In</a></li>';
+              echo '<li><a href="./signup.php">Log In</a></li>';
               echo '<li><a href="./register.php">Register</a></li>';
             }
             ?>
@@ -75,24 +72,61 @@ if(isset($_SESSION["username"])){
         </div><!--/.nav-collapse -->
       </div>
     </nav>
-
     <div class="container">
 
-      <form class="form-signin" method="POST" action="verify.php">
-        <h2 class="form-signin-heading">Login</h2>
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" name="username" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" name="pwd" id="inputPassword" class="form-control" placeholder="Password" required>
-        
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-      </form>
-      <div style="text-align:center;">
-          <a href="./register.php">Create account</a>
-      </div>
+    <div class="row" style="margin-top:70px;">
+      <div class="small-12">
+        <?php
+          $i=0;
+          $product_id = array();
+          $product_quantity = array();
+
+          $result = $mysqli->query('SELECT * FROM products');
+          if($result === FALSE){
+            die(mysql_error());
+          }
+
+          if($result){
+
+            while($obj = $result->fetch_object()) {
+
+              echo '<div class="large-4 columns">';
+              echo '<p><h3>'.$obj->product_name.'</h3></p>';
+              echo '<img src="images/products/'.$obj->product_img_name.'"/>';
+              echo '<p><strong>Product Code</strong>: '.$obj->product_code.'</p>';
+              echo '<p><strong>Description</strong>: '.$obj->product_desc.'</p>';
+              echo '<p><strong>Units Available</strong>: '.$obj->qty.'</p>';
+              echo '<p><strong>Price (Per Unit)</strong>: '.$currency.$obj->price.'</p>';
+
+              if($obj->qty > 0){
+                echo '<p><a href="update-cart.php?action=add&id='.$obj->id.'"><input type="submit" value="Add To Cart" style="clear:both; background: #0078A0; border: none; color: #fff; font-size: 1em; padding: 10px;" /></a></p>';
+              }
+              else {
+                echo 'Out Of Stock!';
+              }
+              echo '</div>';
+
+              $i++;
+            }
+
+          }
+
+          $_SESSION['product_id'] = $product_id;
+
+
+          echo '</div>';
+          echo '</div>';
+          ?>
+
+           </div>
+
+
+
+
 
       <!-- FOOTER -->
       <footer>
+        <p class="pull-right"><a href="./index.php">Back to top</a></p>
         <p>&copy; 2015 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
       </footer>
 
