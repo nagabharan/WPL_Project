@@ -87,6 +87,7 @@
           if(isset($_POST['search']))
           {
            $search_term =$_POST['search_box'];
+
             if($_POST['filter'] == "name"){
               $sql = "SELECT * FROM products WHERE name LIKE '%{$search_term}%'";
             }
