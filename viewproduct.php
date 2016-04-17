@@ -52,15 +52,16 @@
             <li><a href="./contact.php">Contact</a></li>
             <?php
               if(isset($_SESSION['username'])){
-                echo '<li class="active"><a href="./products.php">Products</a></li>';                
+                echo '<li><a href="./products.php">Products</a></li>';                
               }
             ?>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <?php
             if(isset($_SESSION['username'])){
-              echo '<li><a href="./cart.php">Cart</a></li>'; 
-              echo '<li><a href="./account.php">My Account</a></li>';
+              echo '<li><a href="./cart.php">Cart</a></li>';  
+              echo '<li><a href="./history.php">My Orders</a></li>';  
+              echo '<li><a href="./admin.php">My Account</a></li>';
               echo '<li><a href="./logout.php">Log Out</a></li>';
             }
             else{
@@ -94,27 +95,22 @@
               echo '<p><strong>Genre</strong>: '.$obj->genre.'</p>';
               echo '<p><strong>Artist</strong>: '.$obj->artist.'</p>';
               echo '<p><strong>Year</strong>: '.$obj->year.'</p>';
-              echo '<p><strong>Units Available</strong>: '.$obj->qty.'</p>';
               echo '<p><strong>Price (Per Unit)</strong>: '.$currency.$obj->price.'</p>';
-
-              if($obj->qty > 0){
-                echo '<p><a href="update-cart.php?action=add&id='.$obj->id.'"><input type="submit" value="Add To Cart" style="clear:both; background: #0078A0; border: none; color: #fff; font-size: 1em; padding: 10px;" /></a></p>';
-              }
-              else {
-                echo 'Out Of Stock!';
-              }
+              echo '<p><strong>Units Available</strong>:'.$obj->qty.'</p>';
               echo '</div>';
-
-              $i++;
+              echo '<form method="post" action="updateproduct.php">';
+              echo '<p><strong>New Quantity</strong>: <input type="number" name="quantity"/> ';
+              echo '<input hidden name="id" value="'.$obj->id.'"/>';
+              echo '<button class="btn btn-primary" type="submit">Update</button> ';
+              echo '<a href="deleteproduct.php?id='.$obj->id.'" class="btn btn-danger" role="button">Delete</a>';
             }
-
           }
 
           $_SESSION['product_id'] = $product_id;
 
 
           ?>
-
+          
            </div>
          </div>
       <!-- FOOTER -->

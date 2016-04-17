@@ -114,7 +114,7 @@ include 'config.php';
               echo '<td>'.$obj->qty.'</td>';
               echo '<td>'.$currency.$obj->price.'</td>';
 
-              echo '<td>View</td>';
+              echo '<td><a class="btn btn-info" href="viewproduct.php?id='.$obj->id.'">View</a></td>';
           
               echo '</tr>';
             }

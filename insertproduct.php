@@ -15,6 +15,7 @@
 		echo '<br/>';
 	} else {
 		echo 'Failed';
+		echo $mysqli->error;
 	}
 
 	header ("location:account.php");

@@ -107,7 +107,7 @@ include 'config.php';
                 echo '<tr>';
                 echo '<td>'.$obj->name.'</td>';
                 echo '<td>'.$obj->artist.'</td>';
-                echo '<td>'.$quantity.'&nbsp;<a class="button [secondary success alert]" style="padding:5px;" href="update-cart.php?action=add&id='.$product_id.'">+</a>&nbsp;<a class="button alert" style="padding:5px;" href="update-cart.php?action=remove&id='.$product_id.'">-</a></td>';
+                echo '<td>'.$quantity.'&nbsp;<a class="btn btn-info" style="padding:5px;" href="update-cart.php?action=add&id='.$product_id.'">+</a>&nbsp;<a class="btn btn-danger" style="padding:5px;" href="update-cart.php?action=remove&id='.$product_id.'">-</a></td>';
                 echo '<td>'.$cost.'</td>';
                 echo '</tr>';
               }
