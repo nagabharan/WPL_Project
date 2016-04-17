@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 17, 2016 at 05:37 AM
+-- Generation Time: Apr 17, 2016 at 08:42 AM
 -- Server version: 10.1.10-MariaDB
 -- PHP Version: 5.6.15
 
@@ -42,7 +42,8 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `name`, `artist`, `price`, `units`, `total`, `date`, `email`) VALUES
-(0, '1989', 'Taylor Swift', '9.99', 1, '9.99', '2016-04-17 03:21:41', 'admin@admin.com');
+(1, '1989', 'Taylor Swift', '9.99', 1, '9.99', '2016-04-17 03:21:41', 'admin@admin.com'),
+(2, '1989', 'Taylor Swift', '9.99', 3, '29.97', '2016-04-17 06:40:58', 'nn@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -66,7 +67,7 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `genre`, `artist`, `year`, `qty`, `image`, `price`) VALUES
-(0, '1989', 'Pop', 'Taylor Swift', 2015, 499, 'Taylor1989.png', '9.99');
+(1, '1989', 'Pop', 'Taylor Swift', 2015, 97, 'Taylor1989.png', '9.99');
 
 -- --------------------------------------------------------
 
@@ -122,6 +123,16 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for dumped tables
 --
 
+--
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `products`
+--
+ALTER TABLE `products`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `users`
 --
