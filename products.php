@@ -82,11 +82,54 @@
           $i=0;
           $product_id = array();
           $product_quantity = array();
+          $sql = 'SELECT * FROM products';
 
-          $result = $mysqli->query('SELECT * FROM products');
+
+          if(isset($_POST['search']))
+          {
+           $search_term =$_POST['search_box'];
+            if($_POST['filter'] == "price")
+            {
+              $sql = "SELECT * FROM products WHERE name = '{$search_term}' ORDER BY price ASC";
+            }
+
+            else if($_POST['filter'] == "name"){
+              $sql = "SELECT * FROM products WHERE name LIKE '{$search_term}'";
+            }
+
+            else if($_POST['filter'] == "artist"){
+              $sql = "SELECT * FROM products WHERE artist LIKE '{$search_term}'";
+            }
+
+            else if($_POST['filter'] == "genre"){
+              $sql = "SELECT * FROM products WHERE genre LIKE '{$search_term}'";
+            }
+
+
+          }
+
+          $result = $mysqli->query($sql);
           if($result === FALSE){
             die(mysql_error());
-          }
+          } ?>
+
+           <form method="POST" action="products.php">
+            <input  placeholder="Search by" name="search_box" type="text">
+            <select name="filter">
+              
+              <option value="name"> Album </option>
+              <option value="artist">Artist</option>
+              <option value="genre">Genre</option>
+              <option value="price"> Sort - Prices Low to high</option>
+            </select>
+             <button type="submit" style = "width: 75px; height: 25px" name="search" value="Search" > Search</button>
+         
+     
+
+     </form>
+
+     <?php
+
 
           if($result){
 
