@@ -1,11 +1,17 @@
 <?php
 
-  if(session_id() == '' || !isset($_SESSION)){session_start();}
+//if (session_status() !== PHP_SESSION_ACTIVE) {session_start();}
+if(session_id() == '' || !isset($_SESSION)){session_start();}
 
-  if(isset($_SESSION["username"])){
-    header("location:index.php");
-  }
+if(!isset($_SESSION["username"])) {
+  header("location:index.php");
+}
 
+if($_SESSION["type"]!="admin") {
+  header("location:index.php");
+}
+
+include 'config.php';
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +25,7 @@
     <meta name="author" content="Deeptha, Nagabharan, Sudhir">
     <link rel="icon" href="img/favicon.ico">
 
-    <title>Signup</title>
+    <title>Products</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -30,12 +36,11 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <!-- Custom styles for this template -->
-    <link href="css/signin.css" rel="stylesheet">
-
   </head>
-
+<!-- NAVBAR
+================================================== -->
   <body>
+
     <!-- Fixed navbar -->
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
@@ -66,7 +71,7 @@
               echo '<li><a href="./logout.php">Log Out</a></li>';
             }
             else{
-              echo '<li class="active"><a href="./signup.php">Log In</a></li>';
+              echo '<li><a href="./signup.php">Log In</a></li>';
               echo '<li><a href="./register.php">Register</a></li>';
             }
             ?>
@@ -75,21 +80,36 @@
       </div>
     </nav>
 
-    <div class="container">
-
-      <form class="form-signin" method="POST" action="verify.php">
-        <h2 class="form-signin-heading">Login</h2>
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" name="username" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" name="pwd" id="inputPassword" class="form-control" placeholder="Password" required>
+    <div class="container" style="margin-top:70px;">
+      <div class="row">
+      <form class="form-signin" method="POST" action="insertproduct.php">
+        <h2 class="form-signin-heading">Create New Product</h2>
         
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-      </form>
-      <div style="text-align:center;">
-          <a href="./register.php">Create account</a>
-      </div>
+        <label for="inputAlbumName" class="sr-only">Album Name</label>
+        <input type="text" id="inputAlbumName" name="aname" class="form-control" placeholder="Album Name" required autofocus> <br/>
 
+        <label for="inputGenre" class="sr-only">Genre</label>
+        <input type="text" id="inputGenre" name="genre" class="form-control" placeholder="Genre" required> <br/>
+        
+        <label for="inputArtist" class="sr-only">Artist</label>
+        <input type="text" id="inputArtist" name="artist" class="form-control" placeholder="Artist" required> <br/>
+        
+        <label for="inputYear" class="sr-only">Year</label>
+        <input type="text" id="inputYear" name="year" class="form-control" placeholder="Year" required> <br/>
+
+        <label for="inputQty" class="sr-only">Quantity</label>
+        <input type="text" id="inputQty" name="qty" class="form-control" placeholder="Quantity" required> <br/>
+        
+        <label for="inputPrice" class="sr-only">Price(Per Unit)</label>
+        <input type="text" id="inputPrice" name="price" class="form-control" placeholder="Price" required> <br/>
+        
+        <label for="inputImage" class="sr-only">Image</label>
+        <input type="text" id="inputImage" name="image" class="form-control" placeholder="Image" required> <br/>
+        
+        <button class="btn btn-lg btn-primary" type="submit">Add</button>
+      </form>
+      <br/>
+      </div>
       <!-- FOOTER -->
       <footer>
         <p>&copy; 2015 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>

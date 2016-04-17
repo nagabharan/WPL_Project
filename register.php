@@ -1,8 +1,8 @@
 <?php
 
-if(session_id() == '' || !isset($_SESSION)){session_start();}
+  if(session_id() == '' || !isset($_SESSION)){session_start();}
 
-if (isset($_SESSION["username"])) {header ("location:index.php");}
+  if (isset($_SESSION["username"])) {header ("location:index.php");}
 
 ?>
 

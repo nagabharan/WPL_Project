@@ -1,8 +1,8 @@
 <?php
 
-//if (session_status() !== PHP_SESSION_ACTIVE) {session_start();}
-if(session_id() == '' || !isset($_SESSION)){session_start();}
-include 'config.php';
+  if(session_id() == '' || !isset($_SESSION)){session_start();}
+  include 'config.php';
+  
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +16,7 @@ include 'config.php';
     <meta name="author" content="Deeptha, Nagabharan, Sudhir">
     <link rel="icon" href="img/favicon.ico">
 
-    <title>WPL Project</title>
+    <title>Products</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -91,10 +91,11 @@ include 'config.php';
             while($obj = $result->fetch_object()) {
 
               echo '<div class="large-4 columns">';
-              echo '<p><h3>'.$obj->product_name.'</h3></p>';
-              echo '<img src="images/products/'.$obj->product_img_name.'"/>';
-              echo '<p><strong>Product Code</strong>: '.$obj->product_code.'</p>';
-              echo '<p><strong>Description</strong>: '.$obj->product_desc.'</p>';
+              echo '<p><h3>'.$obj->name.'</h3></p>';
+              echo '<img src="images/products/'.$obj->image.'"/>';
+              echo '<p><strong>Genre</strong>: '.$obj->genre.'</p>';
+              echo '<p><strong>Artist</strong>: '.$obj->artist.'</p>';
+              echo '<p><strong>Year</strong>: '.$obj->year.'</p>';
               echo '<p><strong>Units Available</strong>: '.$obj->qty.'</p>';
               echo '<p><strong>Price (Per Unit)</strong>: '.$currency.$obj->price.'</p>';
 
@@ -114,19 +115,12 @@ include 'config.php';
           $_SESSION['product_id'] = $product_id;
 
 
-          echo '</div>';
-          echo '</div>';
           ?>
 
            </div>
-
-
-
-
-
+         </div>
       <!-- FOOTER -->
       <footer>
-        <p class="pull-right"><a href="./index.php">Back to top</a></p>
         <p>&copy; 2015 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
       </footer>
 

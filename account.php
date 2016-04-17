@@ -1,17 +1,17 @@
 <?php
 
-if(session_id() == '' || !isset($_SESSION)){session_start();}
+  if(session_id() == '' || !isset($_SESSION)){session_start();}
 
-if(!isset($_SESSION["username"])) {
-  echo '<h1>Invalid Login! Redirecting...</h1>';
-  header("Refresh: 3; url=index.php");
-}
+  if(!isset($_SESSION["username"])) {
+    echo '<h1>Invalid Login! Redirecting...</h1>';
+    header("Refresh: 3; url=index.php");
+  }
 
-if($_SESSION["type"]==="admin") {
-  header("location:admin.php");
-}
+  if($_SESSION["type"]==="admin") {
+    header("location:admin.php");
+  }
 
-include 'config.php';
+  include 'config.php';
 
 ?>
 
@@ -192,8 +192,8 @@ include 'config.php';
 
             </div>
             <div class="small-8 columns">
-              <button class="btn btn-lg btn-primary btn-block" type="submit">Update</button>
-              <button class="btn btn-lg btn-primary btn-block" type="reset">Reset</button>
+              <button class="btn btn-lg btn-primary" type="submit">Update</button>
+              <button class="btn btn-lg btn-primary" type="reset">Reset</button>
             </div>
           </div>
         </div>
