@@ -67,6 +67,8 @@ include 'config.php';
           <ul class="nav navbar-nav navbar-right">
             <?php
             if(isset($_SESSION['username'])){
+              echo '<li><a href="./cart.php">Cart</a></li>';  
+              echo '<li><a href="./history.php">My Orders</a></li>';  
               echo '<li><a href="./admin.php">Admin</a></li>';
               echo '<li><a href="./logout.php">Log Out</a></li>';
             }
@@ -87,7 +89,7 @@ include 'config.php';
         <h2>Hey Admin!</h2>
         <p>
           <h3>These are the list of items present in stock</h3>
-          <a class="btn btn-primary" href="./addproduct.php">New Product</a>
+          <a class="btn btn-primary" href="./addproduct.php">Add Product</a>
         </p>  
         <table class="table table-responsive">
           <tr>
@@ -104,8 +106,8 @@ include 'config.php';
           $result = $mysqli->query("SELECT * from products order by id asc");
           if($result) {
             while($obj = $result->fetch_object()) {
-              echo '<tr><td>'.$obj->name.'</td>';
-              echo '<td><img src="images/products/'.$obj->image.'"/></td>';
+              echo '<tr><td><img src="images/products/'.$obj->image.'"/></td>';
+              echo '<td><strong>'.$obj->name.'</strong></td>';
               echo '<td>'.$obj->genre.'</td>';
               echo '<td>'.$obj->artist.'</td>';
               echo '<td>'.$obj->year.'</td>';

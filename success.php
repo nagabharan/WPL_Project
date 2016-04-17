@@ -1,5 +1,6 @@
 <?php
 
+//if (session_status() !== PHP_SESSION_ACTIVE) {session_start();}
 if(session_id() == '' || !isset($_SESSION)){session_start();}
 
 ?>
@@ -15,7 +16,7 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
     <meta name="author" content="Deeptha, Nagabharan, Sudhir">
     <link rel="icon" href="img/favicon.ico">
 
-    <title>About</title>
+    <title>Products</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -46,7 +47,7 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li><a href="./index.php">Home</a></li>
-            <li class="active"><a href="./about.php">About</a></li>
+            <li><a href="./about.php">About</a></li>
             <li><a href="./contact.php">Contact</a></li>
             <?php
               if(isset($_SESSION['username'])){
@@ -57,9 +58,9 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
           <ul class="nav navbar-nav navbar-right">
             <?php
             if(isset($_SESSION['username'])){
-              echo '<li><a href="./cart.php">Cart</a></li>'; 
+              echo '<li><a href="./cart.php">Cart</a></li>';  
               echo '<li><a href="./history.php">My Orders</a></li>';  
-              echo '<li><a href="./account.php">My Account</a></li>';
+              echo '<li><a href="./admin.php">Admin</a></li>';
               echo '<li><a href="./logout.php">Log Out</a></li>';
             }
             else{
@@ -71,20 +72,14 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
         </div><!--/.nav-collapse -->
       </div>
     </nav>
-
     <div class="container">
-      <div class="row" style="margin-top:70px;">
-        <div class="small-12">
-          <p>BOLT Sports Shop is a project on E-Commerce Website. All products listed are fake. This project just gives a preview to what a real world implementation of E-Commerce Website will look like. Well if you do like the website then visit
-          <a href="http://www.techbarrack.com" target="_blank" title="Tech Barrack Solutions">Tech Barrack Solutions</a>.</p>
 
-          <p>Why BOLT? I am a big fan of Usain Bolt. He is diligent and tries to surpass his previous achievements. And lastly, it was an instant thought. So went for it.</p>
-
-        </div>
+    <div class="row" style="margin-top:70px;">
+      <div class="small-12">
+        <p>Success. Whatever task you performed, has been executed successfully. Congrats!</p>
+        
       </div>
-
-
-
+    </div>
       <!-- FOOTER -->
       <footer>
         <p>&copy; 2015 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>

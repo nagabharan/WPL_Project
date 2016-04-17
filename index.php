@@ -59,6 +59,8 @@
           <ul class="nav navbar-nav navbar-right">
             <?php
             if(isset($_SESSION['username'])){
+              echo '<li><a href="./cart.php">Cart</a></li>'; 
+              echo '<li><a href="./history.php">My Orders</a></li>';  
               echo '<li><a href="./account.php">My Account</a></li>';
               echo '<li><a href="./logout.php">Log Out</a></li>';
             }

@@ -1,6 +1,10 @@
 <?php
 
+//if (session_status() !== PHP_SESSION_ACTIVE) {session_start();}
 if(session_id() == '' || !isset($_SESSION)){session_start();}
+
+include 'config.php';
+
 
 ?>
 
@@ -15,7 +19,7 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
     <meta name="author" content="Deeptha, Nagabharan, Sudhir">
     <link rel="icon" href="img/favicon.ico">
 
-    <title>About</title>
+    <title>Products</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -46,7 +50,7 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li><a href="./index.php">Home</a></li>
-            <li class="active"><a href="./about.php">About</a></li>
+            <li><a href="./about.php">About</a></li>
             <li><a href="./contact.php">Contact</a></li>
             <?php
               if(isset($_SESSION['username'])){
@@ -58,7 +62,7 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
             <?php
             if(isset($_SESSION['username'])){
               echo '<li><a href="./cart.php">Cart</a></li>'; 
-              echo '<li><a href="./history.php">My Orders</a></li>';  
+              echo '<li><a href="./history.php">My Orders</a></li>';   
               echo '<li><a href="./account.php">My Account</a></li>';
               echo '<li><a href="./logout.php">Log Out</a></li>';
             }
@@ -71,20 +75,76 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
         </div><!--/.nav-collapse -->
       </div>
     </nav>
-
     <div class="container">
-      <div class="row" style="margin-top:70px;">
-        <div class="small-12">
-          <p>BOLT Sports Shop is a project on E-Commerce Website. All products listed are fake. This project just gives a preview to what a real world implementation of E-Commerce Website will look like. Well if you do like the website then visit
-          <a href="http://www.techbarrack.com" target="_blank" title="Tech Barrack Solutions">Tech Barrack Solutions</a>.</p>
 
-          <p>Why BOLT? I am a big fan of Usain Bolt. He is diligent and tries to surpass his previous achievements. And lastly, it was an instant thought. So went for it.</p>
+    <div class="row" style="margin-top:70px;">
+      <div class="large-12">
+        <?php
 
-        </div>
-      </div>
+          echo '<p><h3>Your Shopping Cart</h3></p>';
+
+          if(isset($_SESSION['cart'])) {
+
+            $total = 0;
+            echo '<table class="table table-responsive">';
+            echo '<tr>';
+            echo '<th>Name</th>';
+            echo '<th>Artist</th>';
+            echo '<th>Quantity</th>';
+            echo '<th>Cost</th>';
+            echo '</tr>';
+            foreach($_SESSION['cart'] as $product_id => $quantity) {
+
+            $result = $mysqli->query("SELECT name, artist, qty, price FROM products WHERE id = ".$product_id);
+
+
+            if($result){
+
+              while($obj = $result->fetch_object()) {
+                $cost = $obj->price * $quantity; //work out the line cost
+                $total = $total + $cost; //add to the total cost
+
+                echo '<tr>';
+                echo '<td>'.$obj->name.'</td>';
+                echo '<td>'.$obj->artist.'</td>';
+                echo '<td>'.$quantity.'&nbsp;<a class="button [secondary success alert]" style="padding:5px;" href="update-cart.php?action=add&id='.$product_id.'">+</a>&nbsp;<a class="button alert" style="padding:5px;" href="update-cart.php?action=remove&id='.$product_id.'">-</a></td>';
+                echo '<td>'.$cost.'</td>';
+                echo '</tr>';
+              }
+            }
+          }
+
+          echo '<tr>';
+          echo '<td colspan="3" align="right">Total</td>';
+          echo '<td>'.$total.'</td>';
+          echo '</tr>';
+
+          echo '<tr>';
+          echo '<td colspan="4" align="right"><a href="update-cart.php?action=empty" class="btn btn-danger">Empty Cart</a>&nbsp;<a href="products.php" class="btn btn-info">Continue Shopping</a>';
+          if(isset($_SESSION['username'])) {
+            echo ' <a href="orders-update.php" class="btn btn-success">Checkout</button></a>';
+          }
+
+          else {
+            echo '<a href="login.php"><button style="float:right;">Login</button></a>';
+          }
+
+          echo '</td>';
+
+          echo '</tr>';
+          echo '</table>';
+        }
+
+        else {
+          echo "You have no items in your shopping cart.";
+        }
+
+        ?>
 
 
 
+          </div>
+         </div>
       <!-- FOOTER -->
       <footer>
         <p>&copy; 2015 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
