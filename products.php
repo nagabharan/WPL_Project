@@ -84,25 +84,19 @@
           $product_quantity = array();
           $sql = 'SELECT * FROM products';
 
-
           if(isset($_POST['search']))
           {
            $search_term =$_POST['search_box'];
-            if($_POST['filter'] == "price")
-            {
-              $sql = "SELECT * FROM products WHERE name = '{$search_term}' ORDER BY price ASC";
-            }
-
-            else if($_POST['filter'] == "name"){
-              $sql = "SELECT * FROM products WHERE name LIKE '{$search_term}'";
+            if($_POST['filter'] == "name"){
+              $sql = "SELECT * FROM products WHERE name LIKE '%{$search_term}%'";
             }
 
             else if($_POST['filter'] == "artist"){
-              $sql = "SELECT * FROM products WHERE artist LIKE '{$search_term}'";
+              $sql = "SELECT * FROM products WHERE artist LIKE '%{$search_term}%'";
             }
 
             else if($_POST['filter'] == "genre"){
-              $sql = "SELECT * FROM products WHERE genre LIKE '{$search_term}'";
+              $sql = "SELECT * FROM products WHERE genre LIKE '%{$search_term}%'";
             }
 
 
@@ -113,20 +107,17 @@
             die(mysql_error());
           } ?>
 
-           <form method="POST" action="products.php">
-            <input  placeholder="Search by" name="search_box" type="text">
-            <select name="filter">
-              
-              <option value="name"> Album </option>
-              <option value="artist">Artist</option>
-              <option value="genre">Genre</option>
-              <option value="price"> Sort - Prices Low to high</option>
-            </select>
-             <button type="submit" style = "width: 75px; height: 25px" name="search" value="Search" > Search</button>
-         
-     
-
-     </form>
+          <form method="POST" action="products.php">
+              <input placeholder="Search by" name="search_box" type="text">
+                <select name="filter">
+                  <option value="name"> Album </option>
+                  <option value="artist">Artist</option>
+                  <option value="genre">Genre</option>
+                </select>
+              <button type="submit" class="btn btn-primary" name="search" value="Search"> Search</button>
+              <button type="reset" class="btn btn-primary" name="reset" value="reset"> Reset</button>
+              <button class="btn btn-primary" href="./products.php"> Back</button>
+          </form>
 
      <?php
 
@@ -135,7 +126,7 @@
 
             while($obj = $result->fetch_object()) {
 
-              echo '<div class="large-4 columns">';
+              echo '<div class="col-md-4">';
               echo '<p><h3>'.$obj->name.'</h3></p>';
               echo '<img src="images/products/'.$obj->image.'"/>';
               echo '<p><strong>Genre</strong>: '.$obj->genre.'</p>';
@@ -145,7 +136,7 @@
               echo '<p><strong>Price (Per Unit)</strong>: '.$currency.$obj->price.'</p>';
 
               if($obj->qty > 0){
-                echo '<p><a href="update-cart.php?action=add&id='.$obj->id.'"><input type="submit" value="Add To Cart" style="clear:both; background: #0078A0; border: none; color: #fff; font-size: 1em; padding: 10px;" /></a></p>';
+                echo '<p><a href="update-cart.php?action=add&id='.$obj->id.'"><input type="submit" value="Add To Cart" class="btn btn-primary" /></a></p>';
               }
               else {
                 echo 'Out Of Stock!';

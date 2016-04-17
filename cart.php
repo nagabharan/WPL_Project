@@ -107,7 +107,7 @@ include 'config.php';
                 echo '<tr>';
                 echo '<td>'.$obj->name.'</td>';
                 echo '<td>'.$obj->artist.'</td>';
-                echo '<td>'.$quantity.'&nbsp;<a class="btn btn-info" style="padding:5px;" href="update-cart.php?action=add&id='.$product_id.'">+</a>&nbsp;<a class="btn btn-danger" style="padding:5px;" href="update-cart.php?action=remove&id='.$product_id.'">-</a></td>';
+                echo '<td>'.$quantity.'&nbsp;<a class="btn btn-info btn-md" href="update-cart.php?action=add&id='.$product_id.'">+</a>&nbsp;<a class="btn btn-danger btn-md" href="update-cart.php?action=remove&id='.$product_id.'">-</a></td>';
                 echo '<td>'.$cost.'</td>';
                 echo '</tr>';
               }
@@ -122,7 +122,7 @@ include 'config.php';
           echo '<tr>';
           echo '<td colspan="4" align="right"><a href="update-cart.php?action=empty" class="btn btn-danger">Empty Cart</a>&nbsp;<a href="products.php" class="btn btn-info">Continue Shopping</a>';
           if(isset($_SESSION['username'])) {
-            echo ' <a href="orders-update.php" class="btn btn-success">Checkout</button></a>';
+            echo '&nbsp;<a href="orders-update.php" class="btn btn-success">Checkout</button></a>';
           }
 
           else {
