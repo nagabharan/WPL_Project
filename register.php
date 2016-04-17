@@ -100,7 +100,16 @@
         
         <label for="inputPassword" class="sr-only">Password</label>
         <input type="password" id="inputPassword" name="pwd" class="form-control" placeholder="Password" required> <br/>
-        
+        <div id="pswd_info">
+          <p id = "pCheck" class ="invalid">Password not strong enough!!</p><h4>Password must meet the following requirements:</h4>
+          <ul>
+            <li id="letter" class="invalid">At least <strong>one lowercase letter</strong></li>
+            <li id="capital" class="invalid">At least <strong>one uppercase letter</strong></li>
+            <li id="number" class="invalid">At least <strong>one number</strong></li>
+            <li id="sChar" class="invalid">At least <strong>one special character</strong></li>
+            <li id="length" class="invalid">Be at least <strong>8 characters</strong></li>
+          </ul>
+        </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
       </form>
     
@@ -116,6 +125,7 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/scripts.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
   </body>
 </html>
