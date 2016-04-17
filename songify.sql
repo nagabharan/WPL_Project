@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 17, 2016 at 02:08 AM
+-- Generation Time: Apr 17, 2016 at 05:37 AM
 -- Server version: 10.1.10-MariaDB
 -- PHP Version: 5.6.15
 
@@ -19,6 +19,54 @@ SET time_zone = "+00:00";
 --
 -- Database: `songify`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orders`
+--
+
+CREATE TABLE `orders` (
+  `id` int(15) NOT NULL,
+  `name` varchar(60) NOT NULL,
+  `artist` varchar(60) NOT NULL,
+  `price` decimal(10,2) NOT NULL,
+  `units` int(5) NOT NULL,
+  `total` decimal(10,2) NOT NULL,
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `email` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `name`, `artist`, `price`, `units`, `total`, `date`, `email`) VALUES
+(0, '1989', 'Taylor Swift', '9.99', 1, '9.99', '2016-04-17 03:21:41', 'admin@admin.com');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `products`
+--
+
+CREATE TABLE `products` (
+  `id` int(11) NOT NULL,
+  `name` varchar(60) NOT NULL,
+  `genre` varchar(60) NOT NULL,
+  `artist` varchar(60) NOT NULL,
+  `year` int(4) NOT NULL,
+  `qty` int(5) NOT NULL,
+  `image` varchar(60) NOT NULL,
+  `price` decimal(10,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `products`
+--
+
+INSERT INTO `products` (`id`, `name`, `genre`, `artist`, `year`, `qty`, `image`, `price`) VALUES
+(0, '1989', 'Pop', 'Taylor Swift', 2015, 499, 'Taylor1989.png', '9.99');
 
 -- --------------------------------------------------------
 
@@ -50,6 +98,18 @@ INSERT INTO `users` (`id`, `fname`, `lname`, `address`, `city`, `state`, `pin`, 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `products`
+--
+ALTER TABLE `products`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `users`
