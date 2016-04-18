@@ -87,7 +87,7 @@
 
           if(isset($_POST['search']))
           {
-           $search_term =$_POST['search_box'];
+            $search_term =$_POST['search_box'];
 
             if($_POST['filter'] == "name"){
               $sql = "SELECT * FROM products WHERE name LIKE '%{$search_term}%'";
@@ -101,25 +101,103 @@
               $sql = "SELECT * FROM products WHERE genre LIKE '%{$search_term}%'";
             }
 
-            $filter_term = $_POST['filter2'];
-            if($filter_term == "year"){
+            $sort_term = $_POST['filter2'];
+            if($sort_term == "year"){
               $sql = "SELECT * FROM products ORDER BY year";
             }
 
-            else if($filter_term == "artist"){
+            else if($sort_term == "artist"){
               $sql = "SELECT * FROM products ORDER BY artist";
             }
 
-            else if($filter_term == "genre"){
+            else if($sort_term == "genre"){
               $sql = "SELECT * FROM products ORDER BY genre";
             }
 
-            else if($filter_term == "lth"){
+            else if($sort_term == "lth"){
               $sql = "SELECT * FROM products ORDER BY price";
             }
 
-            else if($filter_term == "htl"){
+            else if($sort_term == "htl"){
               $sql = "SELECT * FROM products ORDER BY price DESC";
+            }
+
+            $filter_term1=$_POST['filter3'];
+            $filter_term2=$_POST['filter4'];
+            $filter_term3=$_POST['filter_box'];
+
+            switch ($filter_term1) {
+              case "year":
+                  switch ($filter_term2) {
+                    case "gr":
+                      $sql = "SELECT * FROM products WHERE year > '$filter_term3'";
+                      break;
+                    
+                    case "ls":
+                      $sql = "SELECT * FROM products WHERE year < '$filter_term3'";
+                      break;
+                    
+                    case "gre":
+                      $sql = "SELECT * FROM products WHERE year >= '$filter_term3'";
+                      break;
+                    
+                    case "lse":
+                      $sql = "SELECT * FROM products WHERE year <= '$filter_term3'";
+                      break;
+
+                    case "e":
+                      $sql = "SELECT * FROM products WHERE year = '$filter_term3'";
+                      break;
+                  }
+                break;
+              
+              case "qty":
+                  switch ($filter_term2) {
+                    case "gr":
+                      $sql = "SELECT * FROM products WHERE qty > '$filter_term3'";
+                      break;
+                    
+                    case "ls":
+                      $sql = "SELECT * FROM products WHERE qty < '$filter_term3'";
+                      break;
+                    
+                    case "gre":
+                      $sql = "SELECT * FROM products WHERE qty >= '$filter_term3'";
+                      break;
+                    
+                    case "lse":
+                      $sql = "SELECT * FROM products WHERE qty <= '$filter_term3'";
+                      break;
+
+                    case "e":
+                      $sql = "SELECT * FROM products WHERE qty = '$filter_term3'";
+                      break;
+                  }
+                break;
+
+                case "price":
+                  switch ($filter_term2) {
+                    case "gr":
+                      $sql = "SELECT * FROM products WHERE price > '$filter_term3'";
+                      break;
+                    
+                    case "ls":
+                      $sql = "SELECT * FROM products WHERE price < '$filter_term3'";
+                      break;
+                    
+                    case "gre":
+                      $sql = "SELECT * FROM products WHERE price >= '$filter_term3'";
+                      break;
+                    
+                    case "lse":
+                      $sql = "SELECT * FROM products WHERE price <= '$filter_term3'";
+                      break;
+
+                    case "e":
+                      $sql = "SELECT * FROM products WHERE price = '$filter_term3'";
+                      break;
+                  }
+                break;
             }
           }
 
@@ -127,34 +205,62 @@
           if($result === FALSE){
             die(mysql_error());
           } ?>
-          <div class="row col-md-12">
-          <form class="navbar-form" role="search" method="POST" action="products.php">
-            <div class="col-md-6">
-              <input placeholder="Search by" name="search_box" type="text" class="form-control">
-              <select name="filter" class="form-control">
-                <option value="name">Album</option>
-                <option value="artist">Artist</option>
-                <option value="genre">Genre</option>
-              </select>
-              <button type="submit" class="btn btn-primary" name="search" value="Search">Search</button>              
-            </div>
-            <div class="col-md-4">
-              <div class="input-group">
-                <span class="input-group-addon" id="basic-addon1">Sort By</span>
-                <select name="filter2" class="form-control">
-                  <option value="year">Year</option>
-                  <option value="artist">Artist</option>
-                  <option value="genre">Genre</option>
-                  <option value="lth">Price:Low to High</option>
-                  <option value="htl">Price:High to Low</option>
-                </select>
+          <div class="col-md-12">
+            <form class="navbar-form" role="search" method="POST" action="products.php">
+              <div class="row">
+                <div class="col-md-6">
+                  <input placeholder="Search by" name="search_box" type="text" class="form-control">
+                  <select name="filter" class="form-control">
+                    <option value="name">Album</option>
+                    <option value="artist">Artist</option>
+                    <option value="genre">Genre</option>
+                  </select>
+                  <button type="submit" class="btn btn-primary" name="search" value="Search">Search</button>              
+                </div>
+                <div class="col-md-5">
+                  <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">Sort By</span>
+                    <select name="filter2" class="form-control">
+                      <option value="year">Year</option>
+                      <option value="artist">Artist</option>
+                      <option value="genre">Genre</option>
+                      <option value="lth">Price:Low to High</option>
+                      <option value="htl">Price:High to Low</option>
+                    </select>
+                  </div>
+                  <button type="submit" class="btn btn-primary" name="search" value="Search">Sort</button>
+                </div> 
+                <div class="col-md-1">
+                  <button class="btn btn-primary" href="./products.php">Reset</button>           
+                </div>
               </div>
-              <button type="submit" class="btn btn-primary" name="search" value="Search">Sort</button>
-            </div> 
-            <div>
-            <button class="btn btn-primary" href="./products.php">Reset</button>           
-            </div>
-          </form>          
+              <br>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon2">Filter By</span>
+                    <select name="filter3" class="form-control">
+                      <option value="year">Year</option>
+                      <option value="qty">Quantity</option>
+                      <option value="price">Price</option>
+                    </select>
+                  </div>
+                  <div class="input-group">
+                    <select name="filter4" class="form-control">
+                      <option value="gr">Greater than</option>
+                      <option value="ls">Lesser than</option>
+                      <option value="e">Equal to </option>
+                      <option value="gre">Equal or Greater</option>
+                      <option value="lse">Equal or Lesser</option>                    
+                    </select>
+                  </div>
+                  <div class="input-group">
+                    <input placeholder="Value" name="filter_box" type="text" class="form-control">
+                  </div>
+                    <button type="submit" class="btn btn-primary" name="search" value="Search">Filter</button>
+                </div>
+              </div>
+            </form>          
           <br><hr/>
         </div>
      <?php
