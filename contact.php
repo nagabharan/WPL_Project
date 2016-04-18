@@ -25,6 +25,8 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <!-- Custom styles for this template -->
+    <link href="css/signin.css" rel="stylesheet">
 
   </head>
 <!-- NAVBAR
@@ -81,7 +83,7 @@
 
         <input type="email" id="email" name="email" class="form-control" placeholder="Email" required> <br/>
         
-        <input type="text" id="message" name="message" class="form-control" placeholder="Message" required> <br/>
+        <textarea id="message" name="message" class="form-control" placeholder="Message here" required rows="6"></textarea> <br/>
         <div align="center">
           <button class="btn btn-lg btn-primary" type="submit">Submit</button>
           <button class="btn btn-lg btn-primary" type="reset">Reset</button>
