@@ -42,7 +42,7 @@ include 'config.php';
   <body>
 
     <!-- Fixed navbar -->
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -51,7 +51,7 @@ include 'config.php';
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="./index.php">Songify</a>
+          <a class="navbar-brand" href="./index.php"><span style="color:#CCFF00">Songify<span></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -83,7 +83,7 @@ include 'config.php';
     <div class="container" style="margin-top:70px;">
       <div class="row">
       <form class="form-signin" method="POST" action="insertproduct.php">
-        <h2 class="form-signin-heading">Create New Product</h2>
+        <h2 class="form-signin-heading" align="center">Create New Product</h2>
         
         <label for="inputAlbumName">Album Name</label>
         <input type="text" id="inputAlbumName" name="aname" class="form-control" placeholder="Album Name" required autofocus> <br/>
@@ -105,8 +105,10 @@ include 'config.php';
         
         <label for="inputImage">Image</label>
         <input type="text" id="inputImage" name="image" class="form-control" placeholder="Image" required> <br/>
+        <div align="center">
+          <button class="btn btn-lg btn-primary" type="submit">Add</button>
+        </div>
         
-        <button class="btn btn-lg btn-primary" type="submit">Add</button>
       </form>
       <br/>
       </div>

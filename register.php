@@ -32,18 +32,20 @@
 
   </head>
 
-  <body>
+  <body id="registerBody">
+
     <!-- Fixed navbar -->
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
+
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span>Toggle navigation</span>
+            <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="./index.php">Songify</a>
+          <a class="navbar-brand" href="./index.php"><span style="color:#CCFF00">Songify<span></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -59,8 +61,10 @@
           <ul class="nav navbar-nav navbar-right">
             <?php
             if(isset($_SESSION['username'])){
+              echo '<li><a href="./cart.php">Cart</a></li>'; 
+              echo '<li><a href="./history.php">My Orders</a></li>';  
               echo '<li><a href="./account.php">My Account</a></li>';
-              echo '<li><a href="./logout.php">Log Out</a></li>';
+              echo '<li class="active"><a href="./logout.php">Log Out</a></li>';
             }
             else{
               echo '<li><a href="./signup.php">Log In</a></li>';
@@ -75,7 +79,7 @@
     <div class="container">
 
       <form class="form-signin" method="POST" action="insert.php">
-        <h2 class="form-signin-heading">Create New Account</h2><br>
+        <h2 class="form-signin-heading" style="color:#CCFF00">Create New Account</h2><br>
         
         <!-- <label for="inputFName">First Name</label> -->
         <input type="text" id="inputFName" name="fname" class="form-control" placeholder="First Name" required autofocus> <br/>

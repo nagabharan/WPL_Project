@@ -35,18 +35,20 @@
 
   </head>
 
-  <body>
+  <body id="loginBody">
+
     <!-- Fixed navbar -->
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
+
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="./index.php">Songify</a>
+          <a class="navbar-brand" href="./index.php"><span style="color:#CCFF00">Songify<span></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -62,7 +64,9 @@
           <ul class="nav navbar-nav navbar-right">
             <?php
             if(isset($_SESSION['username'])){
-              echo '<li><a href="./account.php">My Account</a></li>';
+              echo '<li><a href="./cart.php">Cart</a></li>'; 
+              echo '<li><a href="./history.php">My Orders</a></li>';  
+              echo '<li class="active"><a href="./account.php">My Account</a></li>';
               echo '<li><a href="./logout.php">Log Out</a></li>';
             }
             else{
@@ -78,7 +82,7 @@
     <div class="container">
 
       <form class="form-signin" method="POST" action="verify.php">
-        <h2 class="form-signin-heading">Login</h2>
+        <h2 class="form-signin-heading" style="color:#CCFF00" align="center">Login</h2>
         <br>
         <!-- <label for="inputEmail">Email address</label> -->
         <input type="email" name="username" id="inputEmail" class="form-control" placeholder="Email address" required autofocus><br>

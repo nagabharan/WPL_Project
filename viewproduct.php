@@ -42,7 +42,7 @@ include 'config.php';
   <body>
 
     <!-- Fixed navbar -->
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -51,7 +51,7 @@ include 'config.php';
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="./index.php">Songify</a>
+          <a class="navbar-brand" href="./index.php"><span style="color:#CCFF00">Songify<span></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -96,7 +96,7 @@ include 'config.php';
 
             while($obj = $result->fetch_object()) {
               echo '<form class="form-signin" method="POST" action="updateproduct.php">';
-              echo '<h2 class="form-signin-heading">Update Product</h2>';
+              echo '<h2 class="form-signin-heading" align="center">Update Product</h2>';
         
               echo '<label for="inputAlbumName">Album Name</label>';
               echo '<input type="text" id="inputAlbumName" name="aname" class="form-control" value="'.$obj->name.'" required autofocus> <br/>';
@@ -122,8 +122,8 @@ include 'config.php';
               
               echo '<input hidden name="id" value="'.$obj->id.'"/>';
 
-              echo '<div class="col-md-6"><button class="btn btn-primary" type="submit">Update</button></div>';
-              echo '<div class="col-md-6"><a href="deleteproduct.php?id='.$obj->id.'" class="btn btn-danger" role="button">Delete</a></div>';
+              echo '<div class="col-md-6" align="center"><button class="btn btn-primary" type="submit">Update</button></div>';
+              echo '<div class="col-md-6" align="center"><a href="deleteproduct.php?id='.$obj->id.'" class="btn btn-danger" role="button">Delete</a></div>';
               echo '</form>';
             }
           }

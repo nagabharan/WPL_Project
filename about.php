@@ -25,23 +25,26 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <link href="css/signin.css" rel="stylesheet">
+    <link href="css/carousel.css" rel="stylesheet">
 
   </head>
 <!-- NAVBAR
 ================================================== -->
-  <body>
+  <body id="aboutBody">
 
     <!-- Fixed navbar -->
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
+
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="./index.php">Songify</a>
+          <a class="navbar-brand" href="./index.php"><span style="color:#CCFF00">Songify<span></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -75,12 +78,18 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
     <div class="container">
       <div class="row" style="margin-top:70px;">
         <div class="small-12">
-          <p>BOLT Sports Shop is a project on E-Commerce Website. All products listed are fake. This project just gives a preview to what a real world implementation of E-Commerce Website will look like. Well if you do like the website then visit
-          <a href="http://www.techbarrack.com" target="_blank" title="Tech Barrack Solutions">Tech Barrack Solutions</a>.</p>
+          <h1 style="color:#CCFF00" align="center">About Us</h1><br><br>
 
-          <p>Why BOLT? I am a big fan of Usain Bolt. He is diligent and tries to surpass his previous achievements. And lastly, it was an instant thought. So went for it.</p>
-
-        </div>
+          <div class="row">
+            <div class="col-md-7 about">
+                <p>With Songify, it’s easy to find the right music for every moment – on your phone, your computer, your tablet and more.</p>
+ 
+                <p>There are millions of tracks on Songify. So whether you’re working out, partying or relaxing, the right music is always at your fingertips. Choose what you want to listen to, or let Songify surprise you.</p>
+                 
+                <p>Browse through the music collections.</p>
+                 
+                <p>Soundtrack your life with Songify. Subscribe or listen for free.</p>
+            </div>
       </div>
 
     </div><!-- /.container -->

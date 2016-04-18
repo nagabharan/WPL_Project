@@ -3,6 +3,44 @@ body {
   padding-bottom: 40px;
   background-color: #eee;
 }
+.navbar-brand{
+  color:yellow;
+}
+#loginBody{
+  background-color: black;
+  background-image: url("../images/tumblr_hands2.gif");
+  background-position: center fixed;
+  background-size: 150%;
+  background-repeat: no-repeat;
+}
+#registerBody{
+  background-color: black;
+  background-image: url("../images/tumblr_hands5.gif");
+  background-position: center fixed;
+  background-size: 150%;
+  background-repeat: no-repeat;
+}
+#contactBody{
+  background-color: black;
+  background-image: url("../images/tumblr_hands3.gif");
+  background-position: center fixed;
+  background-size: 150%;
+  background-repeat: no-repeat;
+}
+.about{
+  font-size: 15px;
+  color:#CCFF00;
+}
+#aboutBody{
+  background-color: black;
+  background-image: url("../images/tumblr_hands.gif");
+  background-position: center fixed;
+  background-size: 150%;
+  background-repeat: no-repeat;
+}
+#indexBody{
+    background-color: #CCFF00
+}
 
 .form-signin {
   max-width: 330px;
@@ -70,11 +108,11 @@ body {
 #pswd_info::before {
     content: "\25C4";
     position:absolute;
-    top:40px;
+    top:50px;
     left:-6%;
     font-size:20px;
     line-height:14px;
-    color:black;
+    color:#CCFF00;
     text-shadow:none;
     display:block;
 }
