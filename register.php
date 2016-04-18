@@ -38,7 +38,7 @@
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
+            <span>Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -75,30 +75,30 @@
     <div class="container">
 
       <form class="form-signin" method="POST" action="insert.php">
-        <h2 class="form-signin-heading">Create New Account</h2>
+        <h2 class="form-signin-heading">Create New Account</h2><br>
         
-        <label for="inputFName" class="sr-only">First Name</label>
+        <!-- <label for="inputFName">First Name</label> -->
         <input type="text" id="inputFName" name="fname" class="form-control" placeholder="First Name" required autofocus> <br/>
 
-        <label for="inputLName" class="sr-only">Last Name</label>
+        <!-- <label for="inputLName">Last Name</label> -->
         <input type="text" id="inputLName" name="lname" class="form-control" placeholder="Last Name" required> <br/>
         
-        <label for="inputAddr" class="sr-only">Address</label>
+        <!-- <label for="inputAddr">Address</label> -->
         <input type="text" id="inputAddr" name="addr" class="form-control" placeholder="Address" required> <br/>
         
-        <label for="inputCity" class="sr-only">City</label>
+        <!-- <label for="inputCity">City</label> -->
         <input type="text" id="inputCity" name="city" class="form-control" placeholder="City" required> <br/>
 
-        <label for="inputState" class="sr-only">State</label>
+        <!-- <label for="inputState">State</label> -->
         <input type="text" id="inputState" name="state" class="form-control" placeholder="State" required> <br/>
         
-        <label for="inputZip" class="sr-only">Zip Code</label>
+        <!-- <label for="inputZip">Zip Code</label> -->
         <input type="text" id="inputZip" name="zip" class="form-control" placeholder="Zip" required> <br/>
         
-        <label for="inputEmail" class="sr-only">Email address</label>
+        <!-- <label for="inputEmail">Email address</label> -->
         <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" required> <br/>
         
-        <label for="inputPassword" class="sr-only">Password</label>
+        <!-- <label for="inputPassword">Password</label> -->
         <input type="password" id="inputPassword" name="pwd" class="form-control" placeholder="Password" required> <br/>
         <div id="pswd_info">
           <p id = "pCheck" class ="invalid">Password not strong enough!!</p><h4>Password must meet the following requirements:</h4>

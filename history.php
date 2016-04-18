@@ -82,7 +82,7 @@ include 'config.php';
     <div class="container">
       <div class="row" style="margin-top:70px;">
       
-        <h3>My Transaction History</h3>
+        <p><h1 align="center">Transaction History</h1></p>
         <hr>
 
         <?php

@@ -86,24 +86,18 @@
     <div class="container">
     <div class="row" style="margin-top:70px;">
       <div class="small-12">
-        <p><?php echo '<h3>Hi ' .$_SESSION['fname'] .'</h3>'; ?></p>
-
-        <p><h4>Account Details</h4></p>
-
-        <p>Below are your details in the database. If you wish to change anything, then just enter new data in text box and click on update.</p>
+        <p><?php echo '<h2 align="center">Hi ' .$_SESSION['fname'] .'!</h2>'; ?></p>
+        <p><br><h4 align="center">Your Account Details</h4></p>
+        <p><br>Below are your details in the database. If you wish to change anything, then just enter new data in text box and click on update.</p>
       </div>
     </div>
 
-
-    <form method="POST" action="update.php" style="margin-top:30px;">
+    <form method="POST" action="update.php">
       <div class="row">
-        <div class="small-12">
+        <div class="col-md-12">
 
           <div class="row">
-            <div class="small-3 columns">
-              <label for="right-label" class="right inline">First Name</label>
-            </div>
-            <div class="small-8 columns end">
+            
               <?php
 
                 $result = $mysqli->query('SELECT * FROM users WHERE id='.$_SESSION['id']);
@@ -114,90 +108,39 @@
 
                 if($result) {
                   $obj = $result->fetch_object();
-                  echo '<input type="text" id="right-label" placeholder="'. $obj->fname. '" name="fname">';
+                  
+                  echo '<br><label for="inputFName">First Name</label>';
+                  echo '<input type="text" id="inputFName" name="fname" class="form-control" value="'.$obj->fname.'"> <br/>';
 
-                  echo '</div>';
-                    echo '</div>';
+                  echo '<label for="inputLName">Last Name</label>';
+                  echo '<input type="text" id="inputLName" name="lname" class="form-control" value="'.$obj->lname.'"> <br/>';
 
-                  echo '<div class="row">';
-                  echo '<div class="small-3 columns">';
-                  echo '<label for="right-label" class="right inline">Last Name</label>';
-                  echo '</div>';
-                  echo '<div class="small-8 columns end">';
+                  echo '<label for="inputAddr">Address</label>';
+                  echo '<input type="text" id="inputAddr" name="addr" class="form-control" value="'.$obj->address.'"> <br/>';
 
-                  echo '<input type="text" id="right-label" placeholder="'. $obj->lname. '" name="lname">';
+                  echo '<label for="inputCity">City</label>';
+                  echo '<input type="text" id="inputCity" name="city" class="form-control" value="'.$obj->city.'"> <br/>';
 
-                  echo '</div>';
-                  echo '</div>';
+                  echo '<label for="inputState">State</label>';
+                  echo '<input type="text" id="inputState" name="state" class="form-control" value="'.$obj->state.'"> <br/>';
 
-                  echo '<div class="row">';
-                  echo '<div class="small-3 columns">';
-                  echo '<label for="right-label" class="right inline">Address</label>';
-                  echo '</div>';
-                  echo '<div class="small-8 columns end">';
-                  echo '<input type="text" id="right-label" placeholder="'. $obj->address. '" name="address">';
+                  echo '<label for="inputZip">Zip Code</label>';
+                  echo '<input type="text" id="inputZip" name="zip" class="form-control" value="'.$obj->pin.'"> <br/>';
 
+                  echo '<label for="inputEmail">Email address</label>';
+                  echo '<input type="email" id="inputEmail" name="email" class="form-control" value="'.$obj->email.'"> <br/>';
 
+                  echo '<label for="inputPassword">Password</label>';
+                  echo '<input type="password" id="inputPassword" name="pwd" class="form-control" value="" required> <br/>';
 
-                  echo '</div>';
-                  echo '</div>';
-
-                  echo '<div class="row">';
-                  echo '<div class="small-3 columns">';
-                  echo '<label for="right-label" class="right inline">City</label>';
-                  echo '</div>';
-                  echo '<div class="small-8 columns end">';
-                  echo '<input type="text" id="right-label" placeholder="'. $obj->city. '" name="city">';
-                  echo '</div>';
-                  echo '</div>';
-
-                  echo '<div class="row">';
-                  echo '<div class="small-3 columns">';
-                  echo '<label for="right-label" class="right inline">Pin Code</label>';
-                  echo '</div>';
-                  echo '<div class="small-8 columns end">';
-
-                  echo '<input type="text" id="right-label" placeholder="'. $obj->pin. '" name="pin">';
-
-                  echo '</div>';
-                  echo '</div>';
-
-                  echo '<div class="row">';
-                  echo '<div class="small-3 columns">';
-                  echo '<label for="right-label" class="right inline">Email</label>';
-                  echo '</div>';
-
-                  echo '<div class="small-8 columns end">';
-
-
-                  echo '<input type="email" id="right-label" placeholder="'. $obj->email. '" name="email">';
-
-                  echo '</div>';
-                  echo '</div>';
+                  echo '<input hidden name="id" value="'.$obj->id.'"/>';
               }
 
-
-
-              echo '<div class="row">';
-              echo '<div class="small-3 columns">';
-              echo '<label for="right-label" class="right inline">Password</label>';
-              echo '</div>';
-              echo '<div class="small-8 columns end">';
-              echo '<input type="password" id="right-label" name="pwd">';
-
-              echo '</div>';
-              echo '</div>';
           ?>
-
-          <div class="row">
-            <div class="small-4 columns">
-
-            </div>
-            <div class="small-8 columns">
-              <button class="btn btn-lg btn-primary" type="submit">Update</button>
-              <button class="btn btn-lg btn-primary" type="reset">Reset</button>
-            </div>
-          </div>
+          <div align="center">
+            <br><button class="btn btn-lg btn-primary" type="submit">Update</button>
+            <button class="btn btn-lg btn-primary" type="reset">Reset</button>
+           </div>
         </div>
       </div>
     </form>

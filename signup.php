@@ -79,15 +79,16 @@
 
       <form class="form-signin" method="POST" action="verify.php">
         <h2 class="form-signin-heading">Login</h2>
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" name="username" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-        <label for="inputPassword" class="sr-only">Password</label>
+        <br>
+        <!-- <label for="inputEmail">Email address</label> -->
+        <input type="email" name="username" id="inputEmail" class="form-control" placeholder="Email address" required autofocus><br>
+        <!-- <label for="inputPassword">Password</label> -->
         <input type="password" name="pwd" id="inputPassword" class="form-control" placeholder="Password" required>
-        
+        <br>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
       </form>
       <div style="text-align:center;">
-          <a href="./register.php">Create account</a>
+          <br><a href="./register.php">Create account</a>
       </div>
 
     </div><!-- /.container -->

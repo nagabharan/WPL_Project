@@ -81,7 +81,7 @@ include 'config.php';
       <div class="large-12">
         <?php
 
-          echo '<p><h3>Your Shopping Cart</h3></p>';
+          echo '<p><h1 align="center">Your Shopping Cart</h1></p><br/><br/><hr/>';
 
           if(isset($_SESSION['cart'])) {
 
@@ -136,7 +136,8 @@ include 'config.php';
         }
 
         else {
-          echo "You have no items in your shopping cart.";
+          echo '<p><br><h3 align="center">You have no items in the cart</h3></p><br/><br/>';
+          echo '<p align="center"><a href="products.php" class="btn btn-info">Continue Shopping</a></p>';
         }
 
         ?>

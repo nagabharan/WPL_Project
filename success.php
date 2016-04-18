@@ -75,8 +75,8 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
     <div class="container">
 
     <div class="row" style="margin-top:70px;">
-      <div class="small-12">
-        <p>Success. Whatever task you performed, has been executed successfully. Congrats!</p>
+      <div class="col-md-12">
+        <h1>Success. Your task has been executed successfully. Congrats!</h1>
      </div>
     </div>
 

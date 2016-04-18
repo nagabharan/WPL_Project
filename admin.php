@@ -86,11 +86,13 @@ include 'config.php';
 
     <div class="row" style="margin-top:70px;">
       <div class="col-md-12">
-        <h2>Hey Admin!</h2>
-        <p>
-          <h3>These are the list of items present in stock</h3>
-          <a class="btn btn-primary" href="./addproduct.php">Add Product</a>
-        </p>  
+        <h2 align="center">Hey Admin!</h2>
+        <div class="col-md-10">
+          <h4>These are the list of items present in stock</h4>
+        </div><div class="col-md-2">
+          <span float="right"><a class="btn btn-primary" href="./addproduct.php">Add Product</a></span>
+        </div>
+        <div class="row">
         <table class="table table-responsive">
           <tr>
             <th colspan="2">Title</th>
@@ -123,7 +125,7 @@ include 'config.php';
       </table>
     </div>
   </div>
-      
+      </div>
     </div><!-- /.container -->
 
     <!-- Bootstrap core JavaScript

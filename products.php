@@ -78,6 +78,7 @@
 
     <div class="row" style="margin-top:70px;">
       <div class="large-12">
+        <p><h1 align="center">Product List</h1></p><br/><hr/>
         <?php
           $i=0;
           $product_id = array();
@@ -154,6 +155,7 @@
             <button class="btn btn-primary" href="./products.php">Reset</button>           
             </div>
           </form>          
+          <br><hr/>
         </div>
      <?php
 
@@ -163,16 +165,16 @@
             while($obj = $result->fetch_object()) {
 
               echo '<div class="col-md-4">';
-              echo '<p><h3>'.$obj->name.'</h3></p>';
-              echo '<img src="images/products/'.$obj->image.'"/>';
-              echo '<p><strong>Genre</strong>: '.$obj->genre.'</p>';
+              echo '<p><h3 align="center">'.$obj->name.'</h3></p><br/>';
+              echo '<img align="middle" src="images/products/'.$obj->image.'"/>';
+              echo '<br/><br/><p><strong>Genre</strong>: '.$obj->genre.'</p>';
               echo '<p><strong>Artist</strong>: '.$obj->artist.'</p>';
               echo '<p><strong>Year</strong>: '.$obj->year.'</p>';
               echo '<p><strong>Units Available</strong>: '.$obj->qty.'</p>';
               echo '<p><strong>Price (Per Unit)</strong>: '.$currency.$obj->price.'</p>';
 
               if($obj->qty > 0){
-                echo '<p><a href="update-cart.php?action=add&id='.$obj->id.'"><input type="submit" value="Add To Cart" class="btn btn-primary" /></a></p>';
+                echo '<br/><p align="center"><a href="update-cart.php?action=add&id='.$obj->id.'"><input type="submit" value="Add To Cart" class="btn btn-primary" /></a></p>';
               }
               else {
                 echo 'Out Of Stock!';
