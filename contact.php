@@ -74,12 +74,23 @@
 
     <div class="container">
       <div class="row" style="margin-top:70px;">
-        <div class="small-12">
-          <p>Wanna get in touch. Email us at <a href="mailto:support@techbarrack.com">support@techbarrack.com</a></p>
+        <form class="form-signin" method="POST" action="http://formspree.io/nnagabharan@gmail.com">
+        <h2 class="form-signin-heading" align="center">DROP US A LINE</h2><br>
+        
+        <input type="text" id="name" name="name" class="form-control" placeholder="Name" required> <br/>
+
+        <input type="email" id="email" name="email" class="form-control" placeholder="Email" required> <br/>
+        
+        <input type="text" id="message" name="message" class="form-control" placeholder="Message" required> <br/>
+        <div align="center">
+          <button class="btn btn-lg btn-primary" type="submit">Submit</button>
+          <button class="btn btn-lg btn-primary" type="reset">Reset</button>
         </div>
-      </div>
+        
+      </form>
 
     </div><!-- /.container -->
+        
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
