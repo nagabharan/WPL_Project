@@ -13,7 +13,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="Songify the one stop shop for Vinyl CDs and Albums">
     <meta name="author" content="Deeptha, Nagabharan, Sudhir">
-    <link rel="icon" href="img/favicon.ico">
+    <link rel="icon" href="./images/favicon.png">
 
     <title>Songify</title>
 
@@ -168,7 +168,7 @@
           <p class="lead">Get Blown!</p>
         </div>
         <div class="col-md-5">
-          <img class="featurette-image img-responsive img-circle center-block" src="images/musicBlow.jpg" alt="Generic placeholder image">
+          <img class="img-circle featurette-image center-block" src="images/musicBlow.jpg" alt="Generic placeholder image" width="400" height="400">
         </div>
       </div>
 
@@ -180,7 +180,7 @@
           <p class="lead">Just Search, Discover and Buy! </p>
         </div>
         <div class="col-md-5 col-md-pull-7">
-          <img class="featurette-image img-responsive img-circle center-block" src="images/on_iphone.jpg" alt="Generic placeholder image">
+          <img class="img-circle featurette-image center-block" src="images/on_iphone.jpg" alt="Generic placeholder image" width="400" height="400">
         </div>
       </div>
 
@@ -192,7 +192,7 @@
           <p class="lead">You will never loose your headphones ever!</p>
         </div>
         <div class="col-md-5">
-          <img class="featurette-image img-circle img-responsive center-block" src="images/music-phone.jpg" alt="Generic placeholder image">
+          <img class="img-circle featurette-image center-block" src="images/music-phone.jpg" alt="Generic placeholder image" width="400" height="400">
         </div>
       </div>
 

@@ -13,7 +13,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="Songify the one stop shop for Vinyl CDs and Albums">
     <meta name="author" content="Deeptha, Nagabharan, Sudhir">
-    <link rel="icon" href="img/favicon.ico">
+    <link rel="icon" href="./images/favicon.png">
 
     <title>Contact</title>
 
@@ -76,18 +76,20 @@
     </nav>
 
     <div class="container">
-      <div class="row" style="margin-top:70px;">
-        <form class="form-signin" method="POST" action="http://formspree.io/nnagabharan@gmail.com">
-        <h2 class="form-signin-heading" align="center">DROP US A LINE</h2><br>
+      <div class="row col-md-12" style="margin-top:70px;">
+        <form class="form" method="POST" action="http://formspree.io/nnagabharan@gmail.com">
+        <h2 class="form-group" align="center">DROP US A LINE</h2><br>
         
-        <input type="text" id="name" name="name" class="form-control" placeholder="Name" required> <br/>
+        <input type="text" id="name" name="name" class="form-control" placeholder="Name" required> <br/><br/>
 
-        <input type="email" id="email" name="email" class="form-control" placeholder="Email" required> <br/>
+        <input type="email" id="email" name="email" class="form-control" placeholder="Email" required> <br/><br/>
         
-        <textarea id="message" name="message" class="form-control" placeholder="Message here" required rows="6"></textarea> <br/>
-        <div align="center">
-          <button class="btn btn-lg btn-primary" type="submit">Submit</button>
-          <button class="btn btn-lg btn-primary" type="reset">Reset</button>
+        <textarea id="message" name="message" class="form-control" placeholder="Message here" required rows="6"></textarea> <br/><br/>
+        <div class="col-md-12"align="center">
+          <div class="col-md-6"><button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+          </div><div class="col-md-6"><button class="btn btn-lg btn-primary btn-block" type="reset">Reset</button>
+        </div>
+          
         </div>
         
       </form>

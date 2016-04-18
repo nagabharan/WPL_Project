@@ -17,7 +17,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="Songify the one stop shop for Vinyl CDs and Albums">
     <meta name="author" content="Deeptha, Nagabharan, Sudhir">
-    <link rel="icon" href="img/favicon.ico">
+    <link rel="icon" href="./images/favicon.png">
 
     <title>Signup</title>
 

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 18, 2016 at 02:14 AM
+-- Generation Time: Apr 18, 2016 at 09:13 PM
 -- Server version: 10.1.10-MariaDB
 -- PHP Version: 5.6.15
 
@@ -83,7 +83,7 @@ INSERT INTO `products` (`id`, `name`, `genre`, `artist`, `year`, `qty`, `image`,
 (4, 'Confident', 'Pop', 'Demi Lovato', 2015, 70, 'DemiConf.png', '9.99'),
 (5, 'Caracal', 'House', 'Disclosure', 2015, 100, 'DisclosureCara.png', '9.99'),
 (6, 'X', 'Pop', 'Ed Sheeran', 2014, 49, 'EdX.png', '5.99'),
-(7, 'American Beauty/American Psycho', 'Rock', 'Fall Out Boy', 2015, 40, 'FOBABAP.png', '7.99'),
+(7, 'American Beauty', 'Rock', 'Fall Out Boy', 2015, 40, 'FOBABAP.png', '7.99'),
 (8, 'American Idiot', 'Rock', 'Green Day', 2004, 4, 'GreenDayAI.jpg', '4.99'),
 (9, 'Meteora', 'Rock', 'Linkin Park', 2003, 5, 'LPMet.jpg', '4.99'),
 (10, 'Death Magnetic', 'Metal', 'Metallica', 2008, 50, 'MetallicaDM.jpg', '9.99'),
@@ -152,7 +152,7 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `users`
 --

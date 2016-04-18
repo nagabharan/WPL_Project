@@ -15,7 +15,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="Songify the one stop shop for Vinyl CDs and Albums">
     <meta name="author" content="Deeptha, Nagabharan, Sudhir">
-    <link rel="icon" href="img/favicon.ico">
+    <link rel="icon" href="./images/favicon.png">
 
     <title>Register</title>
 
@@ -79,7 +79,7 @@
     <div class="container">
 
       <form class="form-signin" method="POST" action="insert.php">
-        <h2 class="form-signin-heading" style="color:#CCFF00">Create New Account</h2><br>
+        <h1 class="form-signin-heading" style="color:#CCFF00" align="center">REGISTER</h1><br>
         
         <!-- <label for="inputFName">First Name</label> -->
         <input type="text" id="inputFName" name="fname" class="form-control" placeholder="First Name" required autofocus> <br/>

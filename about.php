@@ -13,7 +13,7 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="Songify the one stop shop for Vinyl CDs and Albums">
     <meta name="author" content="Deeptha, Nagabharan, Sudhir">
-    <link rel="icon" href="img/favicon.ico">
+    <link rel="icon" href="./images/favicon.png">
 
     <title>About</title>
 
@@ -77,19 +77,39 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
 
     <div class="container">
       <div class="row" style="margin-top:70px;">
-        <div class="small-12">
-          <h1 style="color:#CCFF00" align="center">About Us</h1><br><br>
+        <div class="col-md-12">
+          <h1 style="color:#CCFF00;font-size:50px;" align="center">ABOUT US</h1><br><br>
 
           <div class="row">
             <div class="col-md-7 about">
-                <p>With Songify, it’s easy to find the right music for every moment – on your phone, your computer, your tablet and more.</p>
+                <p>With Songify, it’s easy to find the right music for every moment – on your phone, your computer, your tablet and more.</p><br>
  
-                <p>There are millions of tracks on Songify. So whether you’re working out, partying or relaxing, the right music is always at your fingertips. Choose what you want to listen to, or let Songify surprise you.</p>
+                <p>There are millions of tracks on Songify. So whether you’re working out, partying or relaxing, the right music is always at your fingertips. Choose what you want to listen to.</p><br>
                  
-                <p>Browse through the music collections.</p>
+                <p>Browse through the music collections.</p><br>
                  
-                <p>Soundtrack your life with Songify. Subscribe or listen for free.</p>
+                <p>Soundtrack your life with Songify.</p>
             </div>
+          </div>
+          <br>
+        <hr>
+      <div class="row col-md-12" align="center">
+        <h1 style="color:#CCFF00;">THE TEAM</h1><br>
+        <div class="col-md-4">
+          <img class="img-circle" src="images/deeptha.jpg" alt="Generic placeholder image" width="140" height="140">
+          <h2 style="color:#CCFF00;">Deeptha Parsi Diwakar</h2>
+          <p></p>          
+        </div>
+        <div class="col-md-4">
+          <img class="img-circle" src="images/naga.jpg" alt="Generic placeholder image" width="140" height="140">
+          <h2 style="color:#CCFF00;">Nagabharan Nagendran</h2>
+          <p></p>          
+        </div>
+        <div class="col-md-4">
+          <img class="img-circle" src="images/sudhir.jpg" alt="Generic placeholder image" width="140" height="140">
+          <h2 style="color:#CCFF00;">Sudhir Ramalingham</h2>
+          <p></p>
+        </div>
       </div>
 
     </div><!-- /.container -->

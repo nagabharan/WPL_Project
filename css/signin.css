@@ -15,7 +15,7 @@ body {
 }
 #registerBody{
   background-color: black;
-  background-image: url("../images/tumblr_hands5.gif");
+  background-image: url("../images/tumblr_hands4.gif");
   background-position: center fixed;
   background-size: 150%;
   background-repeat: no-repeat;
@@ -28,8 +28,8 @@ body {
   background-repeat: no-repeat;
 }
 .about{
-  font-size: 15px;
-  color:#CCFF00;
+  font-size: 20px;
+  color:#BBFF00;
 }
 #aboutBody{
   background-color: black;
@@ -39,7 +39,7 @@ body {
   background-repeat: no-repeat;
 }
 #indexBody{
-    background-color: #CCFF00
+    background-color: #BBFF00
 }
 
 .form-signin {
@@ -112,7 +112,7 @@ body {
     left:-6%;
     font-size:20px;
     line-height:14px;
-    color:#CCFF00;
+    color:#BBFF00;
     text-shadow:none;
     display:block;
 }
