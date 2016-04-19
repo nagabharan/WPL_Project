@@ -82,13 +82,20 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
 
           <div class="row">
             <div class="col-md-7 about">
-                <p>With Songify, it’s easy to find the right music for every moment – on your phone, your computer, your tablet and more.</p><br>
- 
-                <p>There are millions of tracks on Songify. So whether you’re working out, partying or relaxing, the right music is always at your fingertips. Choose what you want to listen to.</p><br>
-                 
-                <p>Browse through the music collections.</p><br>
-                 
-                <p>Soundtrack your life with Songify.</p>
+                <h3>Are you a Music enthusiast?<h3> 
+                <p>Then you have come to the right place!or should I say right domain.</p>
+                <p>We bring to you the finest collection of sound tracks from all over the world!</p>
+                <p>So, lets start shopping y'all</p>
+                <h2> How we started </h2>
+                <p>
+                I'm Nagabharan, the co-founder and developer of Songify. 
+
+                  Songify was started out of my college dorm room in the mid 2016's while I was studying engineering at University of Texas at Dallas. 
+                  Finding Vinyl records in any store is really hard to do so we decided to tackle the problem and Songify was born.
+                  Songify is one of the best web sites on the internet for tracking down hard to find and out-of-print vinyl records, LPs and CDs.</p>
+
+                
+
             </div>
           </div>
           <br>
