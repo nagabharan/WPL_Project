@@ -11,7 +11,6 @@
   $result = $mysqli->query('SELECT id,email,password,fname,type from users order by id asc');
 
   if($result === FALSE){
-  
     die(mysql_error());
   }
 
@@ -24,16 +23,15 @@
         $_SESSION['id'] = $obj->id;
         $_SESSION['fname'] = $obj->fname;
         header("location:index.php");
-      } 
-    }
+      } else {
 
           if($flag === 'true'){
             redirect();
             $flag = 'false';
           }
-      
+      }
     }
-  
+  }
 
   function redirect() {
     echo '<h1>Invalid Login! Redirecting...</h1>';
