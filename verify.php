@@ -23,13 +23,15 @@
         $_SESSION['type'] = $obj->type;
         $_SESSION['id'] = $obj->id;
         $_SESSION['fname'] = $obj->fname;
+        $flag = 'false';
         header("location:index.php");
+
       } 
     }
 
           if($flag === 'true'){
             redirect();
-            $flag = 'false';
+            #$flag = 'false';
           }
       
     }
