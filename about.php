@@ -88,8 +88,7 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
                 <p>So, lets start shopping y'all</p>
                 <h2> How we started </h2>
                 <p>
-                I'm Nagabharan, the co-founder and developer of Songify. 
-
+               Hi from Deeptha,Nagabharan and Sudhir, the founders and developers of Songify.
                   Songify was started out of my college dorm room in the mid 2016's while I was studying engineering at University of Texas at Dallas. 
                   Finding Vinyl records in any store is really hard to do so we decided to tackle the problem and Songify was born.
                   Songify is one of the best web sites on the internet for tracking down hard to find and out-of-print vinyl records, LPs and CDs.</p>
