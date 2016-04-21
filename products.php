@@ -100,7 +100,8 @@
             else if($_POST['sterm'] == "genre"){
               $sql = "SELECT * FROM products WHERE genre LIKE '%{$search_term}%'";
             }
-          } else if(isset($_POST['sort'])) {
+          } 
+          if(isset($_POST['sort'])) {
             $sort_term = $_POST['filter2'];
             if($sort_term == "year"){
             $sql = "SELECT * FROM products ORDER BY year";
@@ -121,7 +122,8 @@
             else if($sort_term == "htl"){
             $sql = "SELECT * FROM products ORDER BY price DESC";
             }
-          } else if(isset($_POST['filter'])) {
+          } 
+          if(isset($_POST['filter'])) {
             $filter_term1=$_POST['filter3'];
             $filter_term2=$_POST['filter4'];
             $filter_term3=$_POST['filter_box'];
