@@ -10,7 +10,7 @@ if(isset($_SESSION['cart'])) {
       if($obj = $result->fetch_object()) {
         $cost = $obj->price * $quantity;
         $user = $_SESSION["username"];
-        $query = $mysqli->query("INSERT INTO orders (name, artist, price, units, total, email) VALUES('$obj->name', '$obj->artist', $obj->price, $quantity, $cost, '$user')");
+        $query = $mysqli->query("INSERT INTO orders (prod_id, artist, price, units, total, email) VALUES('$product_id', '$obj->artist', $obj->price, $quantity, $cost, '$user')");
         if($query){
           $newqty = $obj->qty - $quantity;
           if($mysqli->query("UPDATE products SET qty = ".$newqty." WHERE id = ".$product_id)){

@@ -3,10 +3,6 @@
 //if (session_status() !== PHP_SESSION_ACTIVE) {session_start();}
 if(session_id() == '' || !isset($_SESSION)){session_start();}
 
-if(!isset($_SESSION["username"])){
-  header("location:index.php");
-}
-include 'config.php';
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +16,7 @@ include 'config.php';
     <meta name="author" content="Deeptha, Nagabharan, Sudhir">
     <link rel="icon" href="./images/favicon.png">
 
-    <title>Transactions</title>
+    <title>Failed</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -31,8 +27,6 @@ include 'config.php';
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <!-- Custom styles for this template -->
-    <link href="css/carousel.css" rel="stylesheet">
   </head>
 <!-- NAVBAR
 ================================================== -->
@@ -64,9 +58,9 @@ include 'config.php';
           <ul class="nav navbar-nav navbar-right">
             <?php
             if(isset($_SESSION['username'])){
-              echo '<li><a href="./cart.php">Cart</a></li>'; 
-              echo '<li class="active"><a href="./history.php">My Orders</a></li>';  
-              echo '<li><a href="./account.php">My Account</a></li>';
+              echo '<li><a href="./cart.php">Cart</a></li>';  
+              echo '<li><a href="./history.php">My Orders</a></li>';  
+              echo '<li><a href="./admin.php">Admin</a></li>';
               echo '<li><a href="./logout.php">Log Out</a></li>';
             }
             else{
@@ -78,38 +72,19 @@ include 'config.php';
         </div><!--/.nav-collapse -->
       </div>
     </nav>
-
     <div class="container">
-      <div class="row" style="margin-top:70px;">
-      
-        <p><h1 align="center">Transaction History</h1></p>
-        <hr>
 
-        <?php
-          $user = $_SESSION["username"];
-          $sql = "SELECT * FROM orders o,products p, users u WHERE o.prod_id=p.id and o.email=u.email and o.email='". $user. "'";
-          
-          $result = $mysqli->query($sql);
-          if($result) {
-            while($obj = $result->fetch_object()) {
-              
-              echo '<div class="col-md-4">';
-              echo '<p><h4>Order ID ->'.$obj->id.'</h4></p>';
-              echo '<p><strong>Date of Purchase</strong>: '.$obj->date.'</p>';
-              echo '<p><strong>Product ID</strong>: '.$obj->prod_id.'</p>';
-              echo '<p><strong>Product Artist</strong>: '.$obj->artist.'</p>';
-              echo '<p><strong>Price Per Unit</strong>: '.$obj->price.'</p>';
-              echo '<p><strong>Units Bought</strong>: '.$obj->units.'</p>';
-              echo '<p><strong>Total Cost</strong>: '.$currency.$obj->total.'</p>';
-              echo '<p><hr></p></div>';
-            }
-          }
-        ?>
-        
-      </div>
+    <div class="row" style="margin-top:70px;">
+      <div class="col-md-12">
+        <h1>Failed! Your task was not executed successfully because the product might have been ordered!</h1>
+     </div>
+    </div>
 
     </div><!-- /.container -->
 
+    <?php
+      header("Refresh: 3; url=admin.php");
+    ?>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -117,4 +92,3 @@ include 'config.php';
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
   </body>
 </html>
-
